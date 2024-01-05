@@ -978,7 +978,8 @@ impl<F: FileSystem + Sync> Server<F> {
             | FsOptions::MAX_PAGES
             | FsOptions::SUBMOUNTS
             | FsOptions::INIT_EXT
-            | FsOptions::CREATE_SUPP_GROUP;
+            | FsOptions::CREATE_SUPP_GROUP
+            | FsOptions::DIRECT_IO_ALLOW_MMAP;
 
         let flags_64 = ((flags2 as u64) << 32) | (flags as u64);
         let capable = FsOptions::from_bits_truncate(flags_64);
